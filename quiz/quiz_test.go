@@ -15,7 +15,7 @@ func TestLoad(t *testing.T) {
 }
 
 func TestLoadFileNotFound(t *testing.T) {
-	_, err := NewQuizFromCsvFile("not_found.csv")
+	_, err := NewQuizFromCsvFile("invalid_field_length.csv")
 	assert.NotNil(t, err)
 }
 
