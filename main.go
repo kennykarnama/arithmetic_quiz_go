@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -11,13 +12,12 @@ import (
 )
 
 func main() {
-	args := os.Args
 
-	if len(args) < 2 {
-		log.Fatal("Missing path file")
-	}
+	pathFile := flag.String("file", "example.csv", "Path to csv file")
 
-	quiz, err := quiz.NewQuizFromCsvFile("sample_question.csv")
+	flag.Parse()
+
+	quiz, err := quiz.NewQuizFromCsvFile(*pathFile)
 	if err != nil {
 		log.Fatal(err)
 	}
