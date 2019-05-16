@@ -11,10 +11,12 @@ import (
 )
 
 func main() {
-	quiz, err := quiz.NewQuizFromCsvFile("sample_question.csv")
+
+	quiz, err := quiz.NewQuizFromCsvFile(args[1])
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	idx := 0
 	correctAnswer := 0
 	totalQuestion := len(quiz.Questions)

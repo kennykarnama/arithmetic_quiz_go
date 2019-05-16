@@ -11,6 +11,12 @@ import (
 )
 
 func main() {
+	args := os.Args
+
+	if len(args) < 2 {
+		log.Fatal("Missing path file")
+	}
+
 	quiz, err := quiz.NewQuizFromCsvFile("sample_question.csv")
 	if err != nil {
 		log.Fatal(err)
